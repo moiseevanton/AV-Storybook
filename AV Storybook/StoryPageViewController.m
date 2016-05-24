@@ -103,7 +103,9 @@
     self.recorder = [[AVAudioRecorder alloc] initWithURL:self.soundFileURL settings:settings error:&error];
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
+    if (!self.ourPage.audioURL) {
     [self.recorder prepareToRecord];
+    }
 }
 
 - (void)alertUserWithMessage:(NSString *)message {
